@@ -17,7 +17,7 @@
 
     <style>
         body {background-color: black; overflow: "none";}
-        .button {display: block; padding-right: 0px; width: 90vw; height: 12vh; margin: 2vh; border-radius: 10px; background-color: hsl(260, 50%, 50%);}
+        .button {display: block; padding-right: 0px; width: 90vw; height: 12vh; margin: 2vh; border-radius: 10px; background-color: hsl(106, 92%, 38%);}
         .indicatorDot{display: block; width: 30px;height: 30px;background-color: grey;border-radius: 50%;position:fixed;z-index: 5;}
         .permsbutton{
             position: absolute;
@@ -79,11 +79,15 @@
                         event.alpha = 0;
                         rotation_degrees = event.alpha;
                         xtilt = event.gamma;
-                        //ytilt = event.beta;
+                        ytilt = event.beta;
 
                         xtilt *= 100;
                         xtilt = Math.floor(xtilt);
                         xtilt /= 100;
+
+                        ytilt *= 100;
+                        ytilt = Math.floor(ytilt);
+                        ytilt /= 100;
 
                         if (xtilt <= -50){
                             xtilt = -50;
@@ -94,6 +98,14 @@
                             xtilt = xtilt;
                         }
                         
+                        if (ytilt <= -50){
+                            ytilt = -50;
+                        } 
+                        else if (ytilt >= 50){
+                            ytilt = 50;
+                        } else {
+                            ytilt = ytilt;
+                        }
                         //xtilt ranges from -50 to + 50
 
                         update();
@@ -170,45 +182,58 @@
 
 
         const gainNode1 = new Tone.Gain(0).toDestination();
-        const osc1 = new Tone.Oscillator(440, "triangle3").connect(gainNode1).start();
+        const osc1 = new Tone.Oscillator(440, "sine2").connect(gainNode1).start();
 
         const gainNode2 = new Tone.Gain(0).toDestination();
-        const osc2 = new Tone.Oscillator(440, "triangle3").connect(gainNode2).start();
+        const osc2 = new Tone.Oscillator(440, "sine").connect(gainNode2).start();
 
         const gainNode3 = new Tone.Gain(0).toDestination();
-        const osc3 = new Tone.Oscillator(440, "triangle3").connect(gainNode3).start();
+        const osc3 = new Tone.Oscillator(440, "sine").connect(gainNode3).start();
 
         const gainNode4 = new Tone.Gain(0).toDestination();
-        const osc4 = new Tone.Oscillator(440, "triangle3").connect(gainNode4).start();
+        const osc4 = new Tone.Oscillator(440, "sine").connect(gainNode4).start();
 
         const gainNode5 = new Tone.Gain(0).toDestination();
-        const osc5 = new Tone.Oscillator(440, "triangle3").connect(gainNode5).start();
+        const osc5 = new Tone.Oscillator(440, "sine").connect(gainNode5).start();
 
         const gainNode6 = new Tone.Gain(0).toDestination();
-        const osc6 = new Tone.Oscillator(440, "triangle3").connect(gainNode6).start();
+        const osc6 = new Tone.Oscillator(440, "sine").connect(gainNode6).start();
 
         var flags = [0, 0, 0, 0, 0, 0];
         
 
-        function attack1(keyNum) {flags[5] = 1; gainNode1.gain.rampTo(1, 0.001);}
+        function attack1(keyNum) {flags[5] = 1; gainNode1.gain.rampTo(1, 0.03);}
         function release1(keyNum) {flags[5] = 0; gainNode1.gain.rampTo(0, 0.5);}
 
-        function attack2(keyNum) {flags[4] = 1; gainNode2.gain.rampTo(1, 0.001);}
+        function attack2(keyNum) {flags[4] = 1; gainNode2.gain.rampTo(1, 0.03);}
         function release2(keyNum) {flags[4] = 0; gainNode2.gain.rampTo(0, 0.5);}
 
-        function attack3(keyNum) {flags[3] = 1; gainNode3.gain.rampTo(1, 0.001);}
+        function attack3(keyNum) {flags[3] = 1; gainNode3.gain.rampTo(1, 0.03);}
         function release3(keyNum) {flags[3] = 0; gainNode3.gain.rampTo(0, 0.5);}
 
-        function attack4(keyNum) {flags[2] = 1; gainNode4.gain.rampTo(1, 0.001);}
+        function attack4(keyNum) {flags[2] = 1; gainNode4.gain.rampTo(1, 0.03);}
         function release4(keyNum) {flags[2] = 0; gainNode4.gain.rampTo(0, 0.5);}
 
-        function attack5(keyNum) {flags[1] = 1; gainNode5.gain.rampTo(1, 0.001);}
+        function attack5(keyNum) {flags[1] = 1; gainNode5.gain.rampTo(1, 0.03);}
         function release5(keyNum) {flags[1] = 0; gainNode5.gain.rampTo(0, 0.5);}
 
-        function attack6(keyNum) {flags[0] = 1; gainNode6.gain.rampTo(1, 0.001);}
+        function attack6(keyNum) {flags[0] = 1; gainNode6.gain.rampTo(1, 0.3);}
         function release6(keyNum) {flags[0] = 0; gainNode6.gain.rampTo(0, 0.5);}
 
+        ////////////////////////////////////////////////////////////////////////
+        // Create a reverb effect
+        const reverb = new Tone.Reverb({
+            decay: 1, // Adjust decay time as needed
+            wet: 10 // Adjust wetness (mix) of the effect
+        }).toDestination(); // Connect the reverb effect to the audio output
 
+        // Connect oscillators to the reverb effect
+        gainNode1.connect(reverb);
+        gainNode2.connect(reverb);
+        gainNode3.connect(reverb);
+        gainNode4.connect(reverb);
+        gainNode5.connect(reverb);
+        gainNode6.connect(reverb);
         /////////////////////////////////////////////////////////////////////////////
         function update() {
 
@@ -227,29 +252,16 @@
                 }
             }
 
+            // Adjust volume based on y-axis tilt
+            const volumeAdjustment = ytilt * 0.02; // Adjust sensitivity if needed
 
-            /*
-            pxNEW = px * 100;
-            pxNEW = Math.floor(pxNEW);
-
-            axispx = pxNEW / 400;
-            axispx -= 12.25;
-            axispx *= range;
-            */
-
-            /*
-            var threshold = 0;
-            
-            if (axispx > (threshold * -1) && axispx < threshold) {axispx = 0;}
-            else {
-                if (axispx > (threshold * -1)) {
-                    axispx -= threshold;
-                } 
-                else if (axispx < threshold) {
-                    axispx += threshold;
-                }
-            }
-            */
+            gainNode1.gain.value = 1 + volumeAdjustment;
+            gainNode2.gain.value = 1 + volumeAdjustment;
+            gainNode3.gain.value = 1 + volumeAdjustment;
+            gainNode4.gain.value = 1 + volumeAdjustment;
+            gainNode5.gain.value = 1 + volumeAdjustment;
+            gainNode6.gain.value = 1 + volumeAdjustment;
+                        
 
             osc1pitch = xtilt + 523;
             osc2pitch = xtilt + 587;
