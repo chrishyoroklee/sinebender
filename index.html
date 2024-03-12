@@ -79,15 +79,15 @@
                         event.alpha = 0;
                         rotation_degrees = event.alpha;
                         xtilt = event.gamma;
-                        ytilt = event.beta;
+                        // ytilt = event.beta;
 
                         xtilt *= 100;
                         xtilt = Math.floor(xtilt);
                         xtilt /= 100;
 
-                        ytilt *= 100;
-                        ytilt = Math.floor(ytilt);
-                        ytilt /= 100;
+                        // ytilt *= 100;
+                        // ytilt = Math.floor(ytilt);
+                        // ytilt /= 100;
 
                         if (xtilt <= -50){
                             xtilt = -50;
@@ -98,14 +98,14 @@
                             xtilt = xtilt;
                         }
                         
-                        if (ytilt <= -50){
-                            ytilt = -50;
-                        } 
-                        else if (ytilt >= 50){
-                            ytilt = 50;
-                        } else {
-                            ytilt = ytilt;
-                        }
+                        // if (ytilt <= -50){
+                        //     ytilt = -50;
+                        // } 
+                        // else if (ytilt >= 50){
+                        //     ytilt = 50;
+                        // } else {
+                        //     ytilt = ytilt;
+                        // }
                         //xtilt ranges from -50 to + 50
 
                         update();
