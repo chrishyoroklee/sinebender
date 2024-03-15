@@ -91,7 +91,7 @@
 
                         xtilt = Math.min(Math.max(xtilt, -20), 20);
                         
-                        ytilt = Math.min(Math.min(ytilt, -10), 10);
+                        ytilt = Math.min(Math.min(ytilt, -10), 20);
 
                         update();
                     });
@@ -258,12 +258,12 @@
             osc5vol = ytilt;
             osc6vol = ytilt;
 
-            osc1.volume.value = osc1vol
-            osc2.volume.value = osc2vol
-            osc3.volume.value = osc3vol
-            osc4.volume.value = osc4vol
-            osc5.volume.value = osc5vol
-            osc6.volume.value = osc6vol
+            osc1.volume.value = osc6vol
+            osc2.volume.value = osc5vol
+            osc3.volume.value = osc4vol
+            osc4.volume.value = osc3vol
+            osc5.volume.value = osc2vol
+            osc6.volume.value = osc1vol
 
             //document.getElementById("key1").innerHTML = "X degrees = " + xtilt;
         }
