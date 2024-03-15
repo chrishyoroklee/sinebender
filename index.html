@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>sinebender</title>
-    
-    <!--LINK TO TONE.JS-->
+<!--     
+    LINK TO TONE.JS-->
     <script src="https://tonejs.github.io/build/Tone.js"></script>
 
     <!--LINK TO JOSEFIN SANS FONT-->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
 
-    <!-- LINK TO CSS FILES-->
+    <!-- LINK TO CSS FILES -->
     <link href="/header/header.css" rel="stylesheet" type="text/css">
 
     <style>
@@ -89,14 +89,7 @@
                         // ytilt = Math.floor(ytilt);
                         // ytilt /= 100;
 
-                        if (xtilt <= -50){
-                            xtilt = -50;
-                        } 
-                        else if (xtilt >= 50){
-                            xtilt = 50;
-                        } else {
-                            xtilt = xtilt;
-                        }
+                        xtilt = Math.min(Math.max(xtilt, -20), 20);
                         
                         // if (ytilt <= -50){
                         //     ytilt = -50;
@@ -237,7 +230,7 @@
         /////////////////////////////////////////////////////////////////////////////
         function update() {
 
-            xtiltPOS = xtilt + 50;
+            xtiltPOS = xtilt + 20;
             /*
             dot = document.getElementsByClassName("indicatorDot")[0];
             dot.style.left = xtiltPOS + "%";
@@ -251,17 +244,6 @@
                     buttons[i].style.backgroundColor = 'white';
                 }
             }
-
-            // // Adjust volume based on y-axis tilt
-            // const volumeAdjustment = ytilt * 0.02; // Adjust sensitivity if needed
-
-            // gainNode1.gain.value = 1 + volumeAdjustment;
-            // gainNode2.gain.value = 1 + volumeAdjustment;
-            // gainNode3.gain.value = 1 + volumeAdjustment;
-            // gainNode4.gain.value = 1 + volumeAdjustment;
-            // gainNode5.gain.value = 1 + volumeAdjustment;
-            // gainNode6.gain.value = 1 + volumeAdjustment;
-                        
 
             osc1pitch = xtilt + 523;
             osc2pitch = xtilt + 587;
