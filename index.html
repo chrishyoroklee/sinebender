@@ -79,7 +79,7 @@
                         event.alpha = 0;
                         rotation_degrees = event.alpha;
                         xtilt = event.gamma;
-                        // ytilt = event.beta;
+                        ytilt = event.beta;
 
                         xtilt *= 100;
                         xtilt = Math.floor(xtilt);
@@ -91,15 +91,7 @@
 
                         xtilt = Math.min(Math.max(xtilt, -20), 20);
                         
-                        // if (ytilt <= -50){
-                        //     ytilt = -50;
-                        // } 
-                        // else if (ytilt >= 50){
-                        //     ytilt = 50;
-                        // } else {
-                        //     ytilt = ytilt;
-                        // }
-                        //xtilt ranges from -50 to + 50
+                        ytilt = Math.min(Math.min(xtilt, -10), 10);
 
                         update();
                     });
@@ -258,6 +250,20 @@
             osc4.frequency.value = osc4pitch;
             osc5.frequency.value = osc5pitch;
             osc6.frequency.value = osc6pitch;
+
+            osc1vol = ytilt; 
+            osc2vol = ytilt;
+            osc3vol = ytilt;
+            osc4vol = ytilt;
+            osc5vol = ytilt;
+            osc6vol = ytilt;
+
+            osc1.volume.value = osc1vol
+            osc2.volume.value = osc2vol
+            osc3.volume.value = osc3vol
+            osc4.volume.value = osc4vol
+            osc5.volume.value = osc5vol
+            osc6.volume.value = osc6vol
 
             //document.getElementById("key1").innerHTML = "X degrees = " + xtilt;
         }
