@@ -252,8 +252,8 @@
             osc6.frequency.value = osc6pitch;
 
             const maxYTilt = 50;
-            const maxVolume = 0;
-            const minVolume = -20;
+            const maxVolume = 10;
+            const minVolume = -30;
 
             const volumeRange = maxVolume - minVolume;
             const scaledVolume = (maxYTilt - ytilt) / maxYTilt * volumeRange + minVolume;
