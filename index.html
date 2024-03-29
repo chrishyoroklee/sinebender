@@ -251,19 +251,19 @@
             osc5.frequency.value = osc5pitch;
             osc6.frequency.value = osc6pitch;
 
-            const maxYTilt = 50;
-            const maxVolume = 10;
-            const minVolume = -30;
+            const maxYTilt = 30;
+            // const maxVolume = 10;
+            // const minVolume = -30;
 
-            const volumeRange = maxVolume - minVolume;
-            const scaledVolume = (maxYTilt - ytilt) / maxYTilt * volumeRange + minVolume;
+            // const volumeRange = maxVolume - minVolume;
+            // const scaledVolume = (maxYTilt - ytilt) / maxYTilt * volumeRange + minVolume;
 
-            // osc1vol = maxYTilt - ytilt;
-            // osc2vol = maxYTilt - ytilt;
-            // osc3vol = maxYTilt - ytilt;
-            // osc4vol = maxYTilt - ytilt;
-            // osc5vol = maxYTilt - ytilt;
-            // osc6vol = maxYTilt - ytilt;
+            osc1vol = maxYTilt - ytilt;
+            osc2vol = maxYTilt - ytilt;
+            osc3vol = maxYTilt - ytilt;
+            osc4vol = maxYTilt - ytilt;
+            osc5vol = maxYTilt - ytilt;
+            osc6vol = maxYTilt - ytilt;
 
             osc1.volume.value = scaledVolume
             osc2.volume.value = scaledVolume
