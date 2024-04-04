@@ -85,9 +85,9 @@
                         xtilt = Math.floor(xtilt);
                         xtilt /= 100;
 
-                        // ytilt *= 100;
-                        // ytilt = Math.floor(ytilt);
-                        // ytilt /= 100;
+                        ytilt *= 100;
+                        ytilt = Math.floor(ytilt);
+                        ytilt /= 100;
 
                         xtilt = Math.min(Math.max(xtilt, -20), 20);
                         
@@ -251,7 +251,7 @@
             osc5.frequency.value = osc5pitch;
             osc6.frequency.value = osc6pitch;
 
-            const maxYTilt = 20;
+            const maxYTilt = 0;
             // const maxVolume = -40;
             // const minVolume = -80;
 
