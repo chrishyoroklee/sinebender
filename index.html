@@ -257,19 +257,26 @@
             // }
             const hues = [0, 40, 60, 120, 240, 280, 320];
 
+            // for (let i = 0; i < buttons.length; i++) {
+            //     let color;
+            //     if (flags[i] == 0) {
+            //         // Calculate hue index based on xtilt position
+            //         let hueIndex = Math.floor((xtiltPOS + 20) / 40); // Assuming 40 degrees for each color
+            //         // Ensure hue index stays within valid range
+            //         hueIndex = hueIndex < 0 ? 0 : (hueIndex >= hues.length ? hues.length - 1 : hueIndex);
+            //         // Get hue value based on index
+            //         let hue = hues[hueIndex];
+            //         // Set the button's background color
+            //         color = `hsl(${hue}, 92%, 38%)`;
+            //     } else {
+            //         // If the button is pressed, set background color to white
+            //         color = 'white';
+            //     }
+            //     buttons[i].style.backgroundColor = color;
+            // }
             for (let i = 0; i < buttons.length; i++) {
                 let color;
-                if (flags[i] == 0) {
-                    // Calculate hue index based on xtilt position
-                    let hueIndex = Math.floor((xtiltPOS + 20) / 40); // Assuming 40 degrees for each color
-                    // Ensure hue index stays within valid range
-                    hueIndex = hueIndex < 0 ? 0 : (hueIndex >= hues.length ? hues.length - 1 : hueIndex);
-                    // Get hue value based on index
-                    let hue = hues[hueIndex];
-                    // Set the button's background color
-                    color = `hsl(${hue}, 92%, 38%)`;
-                } else {
-                    // If the button is pressed, set background color to white
+                if (flags[i]==1){
                     color = 'white';
                 }
                 buttons[i].style.backgroundColor = color;
