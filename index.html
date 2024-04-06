@@ -276,13 +276,8 @@
             // }
    
             for (let i = 0; i < buttons.length; i++) {
-                let color;
-                if (flags[i]=1){
-                    color = buttons[i].style.backgroundColor;
-                }else{
-                    color = 'white';
-                }
-                buttons[i].style.backgroundColor = color;
+                buttons[i].addEventListener("touchstart", () => { buttons[i].style.backgroundColor = 'white' });
+                buttons[i].addEventListener("touchend", () => { buttons[i].style.backgroundColor = '' }); // Resets to original color
             }
             osc1pitch = xtilt + 523.25;
             osc2pitch = xtilt + 622.25;
