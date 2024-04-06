@@ -18,13 +18,13 @@
     <style>
         body {background-color: black; overflow: "none";}
         .button {display: block; padding-right: 0px; width: 90vw; height: 12vh; margin: 2vh; border-radius: 10px; background-color: hsl(106, 92%, 38%);}
-        .button1 {display: block; padding-right: 0px; width: 66.16vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: red;}
-        .button2 {display: block; padding-right: 0px; width: 69.64vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: orange;}
-        .button3 {display: block; padding-right: 0px; width: 73.31vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: yellow;}
+        .button1 {display: block; padding-right: 0px; width: 66.16vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: violet;}
+        .button2 {display: block; padding-right: 0px; width: 69.64vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: indigo;}
+        .button3 {display: block; padding-right: 0px; width: 73.31vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: blue;}
         .button4 {display: block; padding-right: 0px; width: 77.16vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: green;}
-        .button5 {display: block; padding-right: 0px; width: 81.23vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: blue;}
-        .button6 {display: block; padding-right: 0px; width: 85.5vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: indigo;}
-        .button7 {display: block; padding-right: 0px; width: 90vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: violet;}
+        .button5 {display: block; padding-right: 0px; width: 81.23vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: yellow;}
+        .button6 {display: block; padding-right: 0px; width: 85.5vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: orange;}
+        .button7 {display: block; padding-right: 0px; width: 90vw; height: 10.3vh; margin: 2vh; border-radius: 10px; background-color: red;}
         .indicatorDot{display: block; width: 30px;height: 30px;background-color: grey;border-radius: 50%;position:fixed;z-index: 5;}
         .permsbutton{
             position: absolute;
@@ -255,7 +255,21 @@
             //         buttons[i].style.backgroundColor = 'white';
             //     }
             // }
-
+            for (let i = 0; i < buttons.length; i++) {
+                let color;
+                if (flags[i] == 0) {
+                    // Calculate the hue based on xtilt position
+                    let hue = 260 + (xtiltPOS * 5); // Adjust the multiplier as needed
+                    // Ensure hue stays within valid range (0-360)
+                    hue = hue < 0 ? 0 : (hue > 360 ? 360 : hue);
+                    // Set the button's background color
+                    color = `hsl(${hue}, 92%, 38%)`;
+                } else {
+                    // If the button is pressed, set background color to white
+                    color = 'white';
+                }
+                buttons[i].style.backgroundColor = color;
+                }
             osc1pitch = xtilt + 523.25;
             osc2pitch = xtilt + 622.25;
             osc3pitch = xtilt + 698.46;
