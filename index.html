@@ -240,20 +240,20 @@
         gainNode6.connect(reverb);
         gainNode7.connect(reverb);
 
-        //Create a delay effect
-        const delay = new Tone.FeedbackDelay({
-            delayTime: 0.1,
-            feedback: 0.3,
-            wet: 0.3
-        }).toDestination();
+        // //Create a delay effect
+        // const delay = new Tone.FeedbackDelay({
+        //     delayTime: 0.1,
+        //     feedback: 0.3,
+        //     wet: 0.3
+        // }).toDestination();
 
-        gainNode1.connect(delay);
-        gainNode2.connect(delay);
-        gainNode3.connect(delay);
-        gainNode4.connect(delay);
-        gainNode5.connect(delay);
-        gainNode6.connect(delay);
-        gainNode7.connect(delay);
+        // gainNode1.connect(delay);
+        // gainNode2.connect(delay);
+        // gainNode3.connect(delay);
+        // gainNode4.connect(delay);
+        // gainNode5.connect(delay);
+        // gainNode6.connect(delay);
+        // gainNode7.connect(delay);
         /////////////////////////////////////////////////////////////////////////////
         function update() {
 
