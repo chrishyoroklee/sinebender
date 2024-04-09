@@ -67,9 +67,9 @@ checkSession();
 function checkSession(){
    var c = getCookie("visited");
    console.log(website);
-   if (c === "yes") {
-        //alert("Welcome back!");
-   } else {
+//    if (c === "yes") {
+//         //alert("Welcome back!");
+//    } else {
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
             if (isIOS === true){
@@ -233,6 +233,6 @@ function checkSession(){
         }
        
    }
-}
+// }
 
 /////////////////////////////////HEADER////////////////////////////////////
