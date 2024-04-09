@@ -227,8 +227,8 @@
         ////////////////////////////////////////////////////////////////////////
         // Create a reverb effect
         const reverb = new Tone.Reverb({
-            decay: 1000, // Adjust decay time as needed
-            wet: 100 // Adjust wetness (mix) of the effect
+            decay: 5000, // Adjust decay time as needed
+            wet: 1000 // Adjust wetness (mix) of the effect
         }).toDestination(); // Connect the reverb effect to the audio output
 
         // Connect oscillators to the reverb effect
