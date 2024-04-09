@@ -119,7 +119,7 @@
     <center><div class = "button5 noselect" id="key3"></div></center>
     <center><div class = "button6 noselect" id="key2"></div></center>
     <center><div class = "button7 noselect" id="key1"></div></center>
-    <center><h1 style ="color: white">C_04082024</h1></center>
+    <center><p style ="color: white">Cm</p></center>
     <!--<div class="indicatorDot noselect" style="left:30%; top:30%;"></div>-->
 
     <div id="permsbutton" class="permsbutton" onclick="clicked()"><h1 class="init">Tap Here <br> to Play the <br> iLophone</h1></div>
@@ -204,25 +204,25 @@
         
 
         function attack1(keyNum) {flags[6] = 1; gainNode1.gain.rampTo(1, 0.08);}
-        function release1(keyNum) {flags[6] = 0; gainNode1.gain.rampTo(0, 0.8);}
+        function release1(keyNum) {flags[6] = 0; gainNode1.gain.rampTo(0, 0.1);}
 
         function attack2(keyNum) {flags[5] = 1; gainNode2.gain.rampTo(1, 0.08);}
-        function release2(keyNum) {flags[5] = 0; gainNode2.gain.rampTo(0, 0.8);}
+        function release2(keyNum) {flags[5] = 0; gainNode2.gain.rampTo(0, 0.1);}
 
         function attack3(keyNum) {flags[4] = 1; gainNode3.gain.rampTo(1, 0.08);}
-        function release3(keyNum) {flags[4] = 0; gainNode3.gain.rampTo(0, 0.8);}
+        function release3(keyNum) {flags[4] = 0; gainNode3.gain.rampTo(0, 0.1);}
 
         function attack4(keyNum) {flags[3] = 1; gainNode4.gain.rampTo(1, 0.08);}
-        function release4(keyNum) {flags[3] = 0; gainNode4.gain.rampTo(0, 0.8);}
+        function release4(keyNum) {flags[3] = 0; gainNode4.gain.rampTo(0, 0.1);}
 
         function attack5(keyNum) {flags[2] = 1; gainNode5.gain.rampTo(1, 0.08);}
-        function release5(keyNum) {flags[2] = 0; gainNode5.gain.rampTo(0, 0.8);}
+        function release5(keyNum) {flags[2] = 0; gainNode5.gain.rampTo(0, 0.1);}
 
         function attack6(keyNum) {flags[1] = 1; gainNode6.gain.rampTo(1, 0.03);}
-        function release6(keyNum) {flags[1] = 0; gainNode6.gain.rampTo(0, 0.8);}
+        function release6(keyNum) {flags[1] = 0; gainNode6.gain.rampTo(0, 0.1);}
 
         function attack7(keyNum) {flags[0] = 1; gainNode7.gain.rampTo(1, 0.03);}
-        function release7(keyNum) {flags[0] = 0; gainNode7.gain.rampTo(0, 0.8);}
+        function release7(keyNum) {flags[0] = 0; gainNode7.gain.rampTo(0, 0.1);}
 
         ////////////////////////////////////////////////////////////////////////
         // Create a reverb effect
