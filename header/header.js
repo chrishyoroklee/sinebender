@@ -53,6 +53,17 @@ function getCookie(c_name){
 }
 checkSession();
 
+function checkSession() {
+    var c = getCookie("visited");
+    console.log(website);
+    if (c !== "yes") {
+        if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Not a mobile device
+            setCookie("visited", "yes");
+        }
+    }
+}
+
 
 // function checkSession(){
 //    var c = getCookie("visited");
