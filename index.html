@@ -225,20 +225,20 @@
         function release7(keyNum) {flags[0] = 0; gainNode7.gain.rampTo(0, 0.2);}
 
         ////////////////////////////////////////////////////////////////////////
-        // Create a reverb effect
-        const reverb = new Tone.Reverb({
-            decay: 1000, // Adjust decay time as needed
-            wet: 0.5 // Adjust wetness (mix) of the effect
-        }).toDestination(); // Connect the reverb effect to the audio output
+        // // Create a reverb effect
+        // const reverb = new Tone.Reverb({
+        //     decay: 1000, // Adjust decay time as needed
+        //     wet: 0.5 // Adjust wetness (mix) of the effect
+        // }).toDestination(); // Connect the reverb effect to the audio output
 
-        // Connect oscillators to the reverb effect
-        gainNode1.connect(reverb);
-        gainNode2.connect(reverb);
-        gainNode3.connect(reverb);
-        gainNode4.connect(reverb);
-        gainNode5.connect(reverb);
-        gainNode6.connect(reverb);
-        gainNode7.connect(reverb);
+        // // Connect oscillators to the reverb effect
+        // gainNode1.connect(reverb);
+        // gainNode2.connect(reverb);
+        // gainNode3.connect(reverb);
+        // gainNode4.connect(reverb);
+        // gainNode5.connect(reverb);
+        // gainNode6.connect(reverb);
+        // gainNode7.connect(reverb);
 
         // //Create a delay effect
         // const delay = new Tone.FeedbackDelay({
