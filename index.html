@@ -227,7 +227,7 @@
         ////////////////////////////////////////////////////////////////////////
         // Create a reverb effect
         const reverb = new Tone.Reverb({
-            decay: 2000, // Adjust decay time as needed
+            decay: 1000, // Adjust decay time as needed
             wet: 0.5 // Adjust wetness (mix) of the effect
         }).toDestination(); // Connect the reverb effect to the audio output
 
@@ -311,21 +311,6 @@
             osc6.frequency.value = osc6pitch;
             osc7.frequency.value = osc7pitch;
 
-            // const maxYTilt = 0;
-            // const maxVolume = -40;
-            // const minVolume = -80;
-
-            // const volumeRange = maxVolume - minVolume;
-            // const scaledVolume = (maxYTilt - ytilt) / maxYTilt * volumeRange + minVolume;
-
-            // osc1vol = maxYTilt - ytilt;
-            // osc2vol = maxYTilt - ytilt;
-            // osc3vol = maxYTilt - ytilt;
-            // osc4vol = maxYTilt - ytilt;
-            // osc5vol = maxYTilt - ytilt;
-            // osc6vol = maxYTilt - ytilt;
-
-
             osc1vol = -(ytilt + 20);
             osc2vol = -(ytilt + 20);
             osc3vol = -(ytilt + 20);
@@ -340,15 +325,6 @@
             osc5.volume.value = osc5vol
             osc6.volume.value = osc6vol
             osc7.volume.value = osc7vol
-
-            // osc1.volume.value = scaledVolume
-            // osc2.volume.value = scaledVolume
-            // osc3.volume.value = scaledVolume
-            // osc4.volume.value = scaledVolume
-            // osc5.volume.value = scaledVolume
-            // osc6.volume.value = scaledVolume
-
-            //document.getElementById("key1").innerHTML = "X degrees = " + xtilt;
         }
         /////////////////////////////////////////////////////////////////////////////
 
